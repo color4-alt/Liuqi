@@ -1,103 +1,103 @@
 #coding:gbk
 """
-µÚÒ»¸öÐ¡ÏîÄ¿£ºRock-paper-scissors-lizard-Spock
-×÷Õß£º
-ÈÕÆÚ£º
+ç¬¬ä¸€ä¸ªå°é¡¹ç›®ï¼šRock-paper-scissors-lizard-Spock
+ä½œè€…ï¼šåˆ˜å¥‡
+æ—¥æœŸï¼š2019/11/20
 """
 
 import random
 
 
 
-# 0 - Ê¯Í·
-# 1 - Ê·²¨¿Ë
-# 2 - Ö½
-# 3 - òáòæ
-# 4 - ¼ôµ¶
+# 0 - çŸ³å¤´
+# 1 - å²æ³¢å…‹
+# 2 - çº¸
+# 3 - èœ¥èœ´
+# 4 - å‰ªåˆ€
 
-# ÒÔÏÂÎªÍê³ÉÓÎÏ·ËùÐèÒªÓÃµ½µÄ×Ô¶¨Òåº¯Êý
+# ä»¥ä¸‹ä¸ºå®Œæˆæ¸¸æˆæ‰€éœ€è¦ç”¨åˆ°çš„è‡ªå®šä¹‰å‡½æ•°
 
 def name_to_number(name):
     """
-    ½«ÓÎÏ·¶ÔÏó¶ÔÓ¦µ½²»Í¬µÄÕûÊý
+    å°†æ¸¸æˆå¯¹è±¡å¯¹åº”åˆ°ä¸åŒçš„æ•´æ•°
     """
-    if name=='Ê¯Í·':
+    if name=='çŸ³å¤´':
        number=0
-    if name=='Ê·²¨¿Ë':
+    if name=='å²æ³¢å…‹':
        number=1
-    if name=='Ö½':
+    if name=='çº¸':
        number=2
-    if name=='òáòæ':
+    if name=='èœ¥èœ´':
        number=3
-    if name=='¼ôµ¶':
+    if name=='å‰ªåˆ€':
        number=4
     return number
 
-    # Ê¹ÓÃif/elif/elseÓï¾ä½«¸÷ÓÎÏ·¶ÔÏó¶ÔÓ¦µ½²»Í¬µÄÕûÊý
-    # ²»ÒªÍü¼Ç·µ»Ø½á¹û
+    # ä½¿ç”¨if/elif/elseè¯­å¥å°†å„æ¸¸æˆå¯¹è±¡å¯¹åº”åˆ°ä¸åŒçš„æ•´æ•°
+    # ä¸è¦å¿˜è®°è¿”å›žç»“æžœ
 
 
-    #±àÐ´Ö´ÐÐ´úÂë,´úÂëÍê³Éºó½«passÉ¾³ý
+    #ç¼–å†™æ‰§è¡Œä»£ç ,ä»£ç å®ŒæˆåŽå°†passåˆ é™¤
 
 
 def number_to_name(number):
     """
-    ½«ÕûÊý (0, 1, 2, 3, or 4)¶ÔÓ¦µ½ÓÎÏ·µÄ²»Í¬¶ÔÏó
+    å°†æ•´æ•° (0, 1, 2, 3, or 4)å¯¹åº”åˆ°æ¸¸æˆçš„ä¸åŒå¯¹è±¡
     """
     if number==0:
-       name='Ê¯Í·'
+       name='çŸ³å¤´'
     if number==1:
-       name='Ê·²¨¿Ë'
+       name='å²æ³¢å…‹'
     if number==2:
-       name='Ö½'
+       name='çº¸'
     if number==3:
-       name='òáòæ'
+       name='èœ¥èœ´'
     if number==4:
-       name='¼ôµ¶'
+       name='å‰ªåˆ€'
 
-    # Ê¹ÓÃif/elif/elseÓï¾ä½«²»Í¬µÄÕûÊý¶ÔÓ¦µ½ÓÎÏ·µÄ²»Í¬¶ÔÏó
-    # ²»ÒªÍü¼Ç·µ»Ø½á¹û
+    # ä½¿ç”¨if/elif/elseè¯­å¥å°†ä¸åŒçš„æ•´æ•°å¯¹åº”åˆ°æ¸¸æˆçš„ä¸åŒå¯¹è±¡
+    # ä¸è¦å¿˜è®°è¿”å›žç»“æžœ
     return name
-    #±àÐ´Ö´ÐÐ´úÂë,´úÂëÍê³Éºó½«passÉ¾³ý
+    #ç¼–å†™æ‰§è¡Œä»£ç ,ä»£ç å®ŒæˆåŽå°†passåˆ é™¤
 
 
 def rpsls(player_choice):
     """
-    ÓÃ»§Íæ¼ÒÈÎÒâ¸ø³öÒ»¸öÑ¡Ôñ£¬¸ù¾ÝRPSLSÓÎÏ·¹æÔò£¬ÔÚÆÁÄ»ÉÏÊä³ö¶ÔÓ¦µÄ½á¹û
+    ç”¨æˆ·çŽ©å®¶ä»»æ„ç»™å‡ºä¸€ä¸ªé€‰æ‹©ï¼Œæ ¹æ®RPSLSæ¸¸æˆè§„åˆ™ï¼Œåœ¨å±å¹•ä¸Šè¾“å‡ºå¯¹åº”çš„ç»“æžœ
 
     """
     com_choice=random.randint(0,4)
-    print("»úÆ÷µÄÑ¡Ôñ:")
+    print("æœºå™¨çš„é€‰æ‹©:")
     print(number_to_name(com_choice))
     if (player_choice==1 and (com_choice==3 or com_choice==2)) or (player_choice==2 and (com_choice==4 or com_choice==3)) or(player_choice==3 and (com_choice==4 or com_choice==0)) or(player_choice==4 and (com_choice==0 or com_choice==1)) or(player_choice==0 and (com_choice==1 or com_choice==2)) :
-        print('ÄúÊäÁË')
+        print('æ‚¨è¾“äº†')
     elif (player_choice==com_choice):
-        print('ÄúºÍ¼ÆËã»ú³öµÄÒ»ÑùÄØ')
+        print('æ‚¨å’Œè®¡ç®—æœºå‡ºçš„ä¸€æ ·å‘¢')
     else:
-        print('ÄúÓ®ÁË')
+        print('æ‚¨èµ¢äº†')
 
-    # Êä³ö"-------- "½øÐÐ·Ö¸î
-    # ÏÔÊ¾ÓÃ»§ÊäÈëÌáÊ¾£¬ÓÃ»§Í¨¹ý¼üÅÌ½«×Ô¼ºµÄÓÎÏ·Ñ¡Ôñ¶ÔÏóÊäÈë£¬´æÈë±äÁ¿player_choice
+    # è¾“å‡º"-------- "è¿›è¡Œåˆ†å‰²
+    # æ˜¾ç¤ºç”¨æˆ·è¾“å…¥æç¤ºï¼Œç”¨æˆ·é€šè¿‡é”®ç›˜å°†è‡ªå·±çš„æ¸¸æˆé€‰æ‹©å¯¹è±¡è¾“å…¥ï¼Œå­˜å…¥å˜é‡player_choice
 
-    # µ÷ÓÃname_to_number()º¯Êý½«ÓÃ»§µÄÓÎÏ·Ñ¡Ôñ¶ÔÏó×ª»»ÎªÏàÓ¦µÄÕûÊý£¬´æÈë±äÁ¿player_choice_number
+    # è°ƒç”¨name_to_number()å‡½æ•°å°†ç”¨æˆ·çš„æ¸¸æˆé€‰æ‹©å¯¹è±¡è½¬æ¢ä¸ºç›¸åº”çš„æ•´æ•°ï¼Œå­˜å…¥å˜é‡player_choice_number
 
-    # ÀûÓÃrandom.randrange()×Ô¶¯²úÉú0-4Ö®¼äµÄËæ»úÕûÊý£¬×÷Îª¼ÆËã»úËæ»úÑ¡ÔñµÄÓÎÏ·¶ÔÏó£¬´æÈë±äÁ¿comp_number
+    # åˆ©ç”¨random.randrange()è‡ªåŠ¨äº§ç”Ÿ0-4ä¹‹é—´çš„éšæœºæ•´æ•°ï¼Œä½œä¸ºè®¡ç®—æœºéšæœºé€‰æ‹©çš„æ¸¸æˆå¯¹è±¡ï¼Œå­˜å…¥å˜é‡comp_number
 
-    # µ÷ÓÃnumber_to_name()º¯Êý½«¼ÆËã»ú²úÉúµÄËæ»úÊý×ª»»Îª¶ÔÓ¦µÄÓÎÏ·¶ÔÏó
+    # è°ƒç”¨number_to_name()å‡½æ•°å°†è®¡ç®—æœºäº§ç”Ÿçš„éšæœºæ•°è½¬æ¢ä¸ºå¯¹åº”çš„æ¸¸æˆå¯¹è±¡
 
-    # ÔÚÆÁÄ»ÉÏÏÔÊ¾¼ÆËã»úÑ¡ÔñµÄËæ»ú¶ÔÏó
+    # åœ¨å±å¹•ä¸Šæ˜¾ç¤ºè®¡ç®—æœºé€‰æ‹©çš„éšæœºå¯¹è±¡
 
-    # ÀûÓÃif/elif/else Óï¾ä£¬¸ù¾ÝRPSLS¹æÔò¶ÔÓÃ»§Ñ¡ÔñºÍ¼ÆËã»úÑ¡Ôñ½øÐÐÅÐ¶Ï£¬²¢ÔÚÆÁÄ»ÉÏÏÔÊ¾ÅÐ¶Ï½á¹û
+    # åˆ©ç”¨if/elif/else è¯­å¥ï¼Œæ ¹æ®RPSLSè§„åˆ™å¯¹ç”¨æˆ·é€‰æ‹©å’Œè®¡ç®—æœºé€‰æ‹©è¿›è¡Œåˆ¤æ–­ï¼Œå¹¶åœ¨å±å¹•ä¸Šæ˜¾ç¤ºåˆ¤æ–­ç»“æžœ
 
-    # Èç¹ûÓÃ»§ºÍ¼ÆËã»úÑ¡ÔñÒ»Ñù£¬ÔòÏÔÊ¾¡°ÄúºÍ¼ÆËã»ú³öµÄÒ»ÑùÄØ¡±£¬Èç¹ûÓÃ»§»ñÊ¤£¬ÔòÏÔÊ¾¡°ÄúÓ®ÁË¡±£¬·´Ö®ÔòÏÔÊ¾¡°¼ÆËã»úÓ®ÁË¡±
+    # å¦‚æžœç”¨æˆ·å’Œè®¡ç®—æœºé€‰æ‹©ä¸€æ ·ï¼Œåˆ™æ˜¾ç¤ºâ€œæ‚¨å’Œè®¡ç®—æœºå‡ºçš„ä¸€æ ·å‘¢â€ï¼Œå¦‚æžœç”¨æˆ·èŽ·èƒœï¼Œåˆ™æ˜¾ç¤ºâ€œæ‚¨èµ¢äº†â€ï¼Œåä¹‹åˆ™æ˜¾ç¤ºâ€œè®¡ç®—æœºèµ¢äº†â€
 
-    pass #¸ù¾ÝÒÔÉÏÌáÊ¾±àÐ´Ö´ÐÐ´úÂë£¬´úÂëÍê³ÉºóÉ¾³ýµôpass
+    pass #æ ¹æ®ä»¥ä¸Šæç¤ºç¼–å†™æ‰§è¡Œä»£ç ï¼Œä»£ç å®ŒæˆåŽåˆ é™¤æŽ‰pass
 
 
-# ¶Ô³ÌÐò½øÐÐ²âÊÔ
-print("»¶Ó­Ê¹ÓÃRPSLSÓÎÏ·")
+# å¯¹ç¨‹åºè¿›è¡Œæµ‹è¯•
+print("æ¬¢è¿Žä½¿ç”¨RPSLSæ¸¸æˆ")
 print("----------------")
-print("ÇëÊäÈëÄúµÄÑ¡Ôñ:")
+print("è¯·è¾“å…¥æ‚¨çš„é€‰æ‹©:")
 choice_name=input()
 player_choice=name_to_number(choice_name)
 rpsls(player_choice)
